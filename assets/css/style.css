@@ -1,3 +1,7 @@
 body {
     background: url("assets/images/tokyo-subway.jpg");
 }
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
