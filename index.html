@@ -8,72 +8,64 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" src="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 
 </head>
 
 <body style="background:url('assets/images/tokyo-subway.jpg')">
     <div class="row">
         <div class="col-lg-12 bg-light text-right">
-            <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">TOKYO UNDERGROUND</h1>
+            <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">TOKYO UNDERGROUND</h1>
         </div>
     </div>
+
     <br></br>
-    <br></br>
-    <br></br>
+
+    <!-- Your Player Choice-->
     <div class="row">
         <div class="col-lg-12">
+            <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR PLAYER</h3>
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-sm-2">
-                            <div class="card bg-light text-dark">
-                                <div class="card-header pt-1 pb-0 mx-auto">
-                                    <h3 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">GO-GO</h3>
-                                </div>
-                                <div class="card-body p-0">
+                        <div id="go-go" class="col-sm-2">
+                            <div class="card bg-transparent">
+                                <div class="card-body text-white" style="padding:0">
                                     <img id="player-1" src="assets/images/go-go-crazy.jpg" class="img-fluid">
                                 </div>
-                                <div class="card-footer pt-1 pb-0">
-                                    <h5 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</h5>
+                                <div class="card-footer text-white" style="padding:0">
+                                    <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <div class="card bg-light text-dark">
-                                <div class="card-header pt-1 pb-0 mx-auto">
-                                    <h3 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">PURGE</h3>
-                                </div>
-                                <div class="card-body p-0">
+                        <div id="purge" class="col-sm-2">
+                            <div class="card bg-transparent">
+                                <div class="card-body" style="padding:0">
                                     <img id="player-2" src="assets/images/purge-dude.jpg" class="img-fluid">
                                 </div>
-                                <div class="card-footer pt-1 pb-0">
-                                    <h5 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</h5>
+                                <div class="card-footer text-white" style="padding:0">
+                                    <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <div class="card bg-light text-dark">
-                                <div class="card-header pt-1 pb-0 mx-auto">
-                                    <h3 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">BLUE ICE</h3>
-                                </div>
-                                <div class="card-body p-0">
+                        <div id="blue-ice" class="col-sm-2">
+                            <div class="card bg-transparent">
+                                <div class="card-body" style="padding:0">
                                     <img id="player-3" src="assets/images/blue-ice.jpg" class="img-fluid">
                                 </div>
-                                <div class="card-footer pt-1 pb-0">
-                                    <h5 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</h5>
+                                <div class="card-footer text-white" style="padding:0">
+                                    <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <div class="card bg-light text-dark">
-                                <div class="card-header pt-1 pb-0 mx-auto">
-                                    <h3 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">PANTERA</h3>
-                                </div>
-                                <div class="card-body p-0">
+                        <div id="pantera" class="col-sm-2">
+                            <div class="card bg-transparent">
+                                <div class="card-body" style="padding:0">
                                     <img id="player-4" src="assets/images/robo-panther.jpg" class="img-fluid">
                                 </div>
-                                <div class="card-footer pt-1 pb-0">
-                                    <h5 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</h5>
+                                <div class="card-footer text-white" style="padding:0">
+                                    <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
@@ -83,10 +75,45 @@
         </div>
     </div>
 
+    <br></br>
+
+    <!-- Container for fight space -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">GAME ON ; )</h3>
+                    <button type="button" class="btn btn-warning btn-lg">ATTACK!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br></br>
 
 
+    <!-- Enemies Section -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR ENEMIES</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br></br>
 
     <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
+
+
+
+
+<script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
