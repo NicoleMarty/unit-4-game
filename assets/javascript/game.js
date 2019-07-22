@@ -1,12 +1,20 @@
 // When the game starts, 
 $(document).ready(function() {
 
-    var players = ["Go-go", "Purge", "Blue-ice", "Pantera"];
+    if ($("#player1>button").on("click", function() {
+            $(this).toggleClass("player-button");
+            var player2Button = $('#player2>button').detach();
+            player2Button.appendTo('#enemies');
+            var player3Button = $('#player3>button').detach();
+            player3Button.appendTo('#enemies');
+            var player4Button = $('#player4>button').detach();
+            player4Button.appendTo('#enemies');
+        }));
 
-    for (var i = 0; i < players.length; i++) {
-        var playerBtn = $("<button>");
-        playerBtn.addClass("player-button player");
-        playerBtn.attr("data-player", players[i]);
-    }
+    $("#player2>button").on("click", function() { $(this).toggleClass("player-button"); });
+    $("#player3>button").on("click", function() { $(this).toggleClass("player-button"); });
+    $("#player4>button").on("click", function() { $(this).toggleClass("player-button"); });
+
+
 
 });
