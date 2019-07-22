@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" src="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 
 
 </head>
@@ -24,45 +23,54 @@
 
     <!-- Your Player Choice-->
     <div class="row">
-        <div class="col-lg-12">
+        <div id="playerChoice" class="col-lg-12">
             <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR PLAYER</h3>
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        <div id="go-go" class="col-sm-2">
+                        <div class="col-sm-2">
                             <div class="card bg-transparent">
-                                <div class="card-body text-white" style="padding:0">
-                                    <img id="player-1" src="assets/images/go-go-crazy.jpg" class="img-fluid">
+                                <div class="card-body" style="padding:0">
+                                    <button>
+                                    <img src="assets/images/go-go-crazy.jpg" class="img-fluid">
+                                </button>
                                 </div>
                                 <div class="card-footer text-white" style="padding:0">
                                     <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
-                        <div id="purge" class="col-sm-2">
+                        <div class="col-sm-2">
+
                             <div class="card bg-transparent">
                                 <div class="card-body" style="padding:0">
-                                    <img id="player-2" src="assets/images/purge-dude.jpg" class="img-fluid">
+                                    <button class="player-button">
+                                    <img src="assets/images/purge-dude.jpg" class="img-fluid">
+                                </button>
                                 </div>
                                 <div class="card-footer text-white" style="padding:0">
                                     <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
-                        <div id="blue-ice" class="col-sm-2">
+                        <div class="col-sm-2">
                             <div class="card bg-transparent">
                                 <div class="card-body" style="padding:0">
-                                    <img id="player-3" src="assets/images/blue-ice.jpg" class="img-fluid">
+                                    <button class="player-button">
+                                <img src="assets/images/blue-ice.jpg" class="img-fluid">
+                            </button>
                                 </div>
                                 <div class="card-footer text-white" style="padding:0">
                                     <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
                                 </div>
                             </div>
                         </div>
-                        <div id="pantera" class="col-sm-2">
+                        <div class="col-sm-2">
                             <div class="card bg-transparent">
                                 <div class="card-body" style="padding:0">
-                                    <img id="player-4" src="assets/images/robo-panther.jpg" class="img-fluid">
+                                    <button class="player-button">
+                                <img src="assets/images/robo-panther.jpg" class="img-fluid">
+                            </button>
                                 </div>
                                 <div class="card-footer text-white" style="padding:0">
                                     <p style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">HP:</p>
@@ -96,7 +104,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
-                <div class="col-md-6">
+                <div id="enemies" class="col-md-6">
                     <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR ENEMIES</h3>
                 </div>
             </div>
