@@ -7,7 +7,6 @@ $(document).ready(function() {
         var playerBtn = $("<button>");
         playerBtn.addClass("player-button player");
         playerBtn.attr("data-player", players[i]);
-        $("#enemies").append(playerBtn);
     }
 
 });
