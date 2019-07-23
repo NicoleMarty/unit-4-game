@@ -46,6 +46,29 @@ $(document).ready(function() {
             player3Button.appendTo('#opponent3');
         }));
 
+    // Choose an opponent
+    var opponentChoice = ["#opponent1", "#opponent2", "#opponent3"];
+
+    if ($("#opponent1>button").on("click", function() {
+            $(this).toggleClass("opponent-button");
+            var opponent1Button = $('#opponent1>button').remove();
+            opponent1Button.appendTo('.currentOpponent');
+
+        }));
+
+    if ($("#opponent2>button").on("click", function() {
+            $(this).toggleClass("opponent-button");
+            var opponent2Button = $('#opponent2>button').remove();
+            opponent2Button.appendTo('.currentOpponent');
+
+        }));
+
+    if ($("#opponent3>button").on("click", function() {
+            $(this).toggleClass("opponent-button");
+            var opponent3Button = $('#opponent3>button').remove();
+            opponent3Button.appendTo('.currentOpponent');
+
+        }));
 
 
 
