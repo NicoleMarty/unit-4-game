@@ -29,7 +29,11 @@ $(document).ready(function() {
             enemyAttackBack: 25
         },
     };
-    console.log(characters);
+
+    var currSelectedCharacter;
+    var combatants = [];
+
+    // FUNCTIONS ================================================================================================
     // This function will render a character card to the page.
     // The character rendered and the area they are rendered to.
     var renderOne = function(character, renderArea) {
@@ -43,17 +47,51 @@ $(document).ready(function() {
     }
 
     var renderCharacters = function(charObj, areaRender) {
-            if (areaRender === "#characters-section") {
-                $(areaRender).empty();
-                for (var key in charObj) {
-                    if (charObj.hasOwnProperty(key)) {
-                        renderOne(charObj[key], areaRender);
-                    }
-
+        if (areaRender === "#characters-section") {
+            $(areaRender).empty();
+            for (var key in charObj) {
+                if (charObj.hasOwnProperty(key)) {
+                    renderOne(charObj[key], areaRender);
                 }
             }
+        }
+
+        if (areaRender === "#selected-character") {
+            renderOne(charObj, areaRender);
+        }
+
+        if (areaRender === "#available-to-attack-section") {
+
+            for (var i = 0; i < charObj.length; i++) {
+                renderOne(charObj[i], areaRender);
+            }
+        }
+    }
+
+    // Render all characters to the page when the game starts!
+    renderCharacters(characters, "#characters-section");
+
+    $(document).on("click", ".character", function() {
+        // Saving clicked character's name.
+        var name = $(this).attr("data-name");
+        console.log(name);
+
+        // If player has not yet been chosen...
+        if (!currSelectedCharacter) {
+            var currSelectedCharacter = characters[name];
+            for (var key in characters) {
+                if (key !== name) {
+                    combatants.push(characters[key]);
+                }
+            }
+            console.log(combatants);
+            // HIde character select div
+            $("#characters-section").hide();
+
+            // Render selected character and combatants
+            renderCharacters(currSelectedCharacter, "#selected-character");
+            renderCharacters(combatants, "#available-to-attack-section");
 
         }
-        // Render all characters to the page when the game starts!
-    renderCharacters(characters, "#characters-section");
+    })
 });
