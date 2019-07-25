@@ -29,4 +29,5 @@ $(document).ready(function() {
             enemyAttackBack: 25
         },
     };
+    console.log(characters);
 });
