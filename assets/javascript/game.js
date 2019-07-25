@@ -45,7 +45,6 @@ $(document).ready(function() {
         }));
 
     // Choose an opponent
-    var opponents = ["#enemy1", "#enemy2", "#enemy3"];
 
     if ($("#enemy1").on("click", function() {
             $(this).appendTo("#opponentChoice");
