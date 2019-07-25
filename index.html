@@ -21,38 +21,41 @@
 
     <br></br>
 
+
     <!-- Your Player Choice-->
     <div class="row">
-        <div id="playerChoice" class="col-md-8">
+        <div class="col-md-8">
             <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR PLAYER</h3>
-            <div class="row">
-                <div id="player1" class="col">
-                    <button id="go-go" class="player-button">
-                                <img src="assets/images/go-go-crazy.jpg" class="img-fluid">
-                            </button>
+            <div id="your-player" class="row">
+                <div class="col">
+                    <button id="player1" class="player-button">
+                    <img src="assets/images/go-go-crazy.jpg" class="img-fluid">
+                    <div class="hp">HP=</div></button>
                 </div>
-                <div id="player2" class="col">
-                    <button id="purge" class="player-button">
-                                    <img src="assets/images/purge-dude.jpg" class="img-fluid">
-                                </button>
+                <div class="col">
+                    <button id="player2" class="player-button">
+                    <img src="assets/images/purge-dude.jpg" class="img-fluid">
+                    <div class="hp">HP=</div></button>
                 </div>
-                <div id="player3" class="col">
-                    <button id="blue-ice" class="player-button">
-                                <img src="assets/images/blue-ice.jpg" class="img-fluid">
-                            </button>
+                <div class="col">
+                    <button id="player3" class="player-button">
+                    <img src="assets/images/blue-ice.jpg" class="img-fluid">
+                    <div class="hp">HP= </div></button>
                 </div>
-                <div id="player4" class="col">
-                    <button id="pantera" class="player-button">
-                                <img src="assets/images/robo-panther.jpg" class="img-fluid">
-                            </button>
+                <div class="col">
+                    <button id="player4" class="player-button">
+                    <img src="assets/images/robo-panther.jpg" class="img-fluid">
+                    <div class="hp">HP=</div></button>
                 </div>
             </div>
         </div>
-        <div id="opponentChoice" class="col-md-4">
-            <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR OPPONENT</h3>
-            <div class="currentOpponent">
+    </div>
 
-            </div>
+    <!-- Current opponent -->
+    <div class="row">
+        <div class="col-md-4">
+            <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR OPPONENT</h3>
+            <div id="opponentChoice" class="opponent-choice"></div>
         </div>
     </div>
 
@@ -66,9 +69,7 @@
                 <div class="col-md-6">
                     <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">GAME ON ; )</h3>
                     <button id="attack" type="button" class="btn btn-warning btn-lg">ATTACK!</button>
-                    <div id="attack-pts">
-
-                    </div>
+                    <div id="attack-pts"><span style="display:none">xpts</span></div>
                 </div>
             </div>
         </div>
@@ -76,30 +77,21 @@
 
     <br></br>
 
-
-
     <!-- Enemies Section -->
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
-                <div id="enemies" class="col-md-8">
+                <div class="col-md-8">
                     <h3 class="text-white" style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">YOUR ENEMIES</h3>
-                    <div class="row">
-                        <div id="opponent1" class="col">
-                            <button class="opponent-button">
-    
-                            </button>
+                    <div id="enemies" class="row">
+                        <div class="col">
+                            <button id="enemy1" class="enemy-button"></button>
                         </div>
-                        <div id="opponent2" class="col">
-                            <button class="opponent-button">
-    
-                                </button>
+                        <div class="col">
+                            <button id="enemy2" class="enemy-button"></button>
                         </div>
-                        <div id="opponent3" class="col">
-
-                            <button class="opponent-button">
-    
-                            </button>
+                        <div class="col">
+                            <button id="enemy3" class="enemy-button"></button>
                         </div>
                     </div>
                 </div>

@@ -2,74 +2,66 @@
 $(document).ready(function() {
 
     var playerChoice = ["player1", "player2", "player3", "player4"];
-
+    console.log(playerChoice.length);
 
     // Pick a player and move remainder to "Your Enemies"
 
-    if ($("#player1>button").on("click", function() {
-            $(this).toggleClass("player-button");
-            var player2Button = $('#player2>button').remove();
-            player2Button.appendTo('#opponent1');
-            var player3Button = $('#player3>button').remove();
-            player3Button.appendTo('#opponent2');
-            var player4Button = $('#player4>button').remove();
-            player4Button.appendTo('#opponent3');
+    if ($("#player1").on("click", function() {
+            var player2Button = $('#player2').remove();
+            player2Button.appendTo('#enemy1');
+            var player3Button = $('#player3').remove();
+            player3Button.appendTo('#enemy2');
+            var player4Button = $('#player4').remove();
+            player4Button.appendTo('#enemy3');
 
         }));
 
-    if ($("#player2>button").on("click", function() {
-            $(this).toggleClass("player-button");
-            var player1Button = $('#player1>button').remove();
-            player1Button.appendTo('#opponent1');
-            var player3Button = $('#player3>button').remove();
-            player3Button.appendTo('#opponent2');
-            var player4Button = $('#player4>button').remove();
-            player4Button.appendTo('#opponent3');
+    if ($("#player2").on("click", function() {
+            var player1Button = $('#player1').remove();
+            player1Button.appendTo('#enemy1');
+            var player3Button = $('#player3').remove();
+            player3Button.appendTo('#enemy2');
+            var player4Button = $('#player4').remove();
+            player4Button.appendTo('#enemy3');
         }));
 
-    if ($("#player3>button").on("click", function() {
-            $(this).toggleClass("player-button");
-            var player1Button = $('#player1>button').remove();
-            player1Button.appendTo('#opponent1');
-            var player2Button = $('#player2>button').remove();
-            player2Button.appendTo('#opponent2');
-            var player4Button = $('#player4>button').remove();
-            player4Button.appendTo('#opponent3');
+    if ($("#player3").on("click", function() {
+
+            var player1Button = $('#player1').remove();
+            player1Button.appendTo('#enemy1');
+            var player2Button = $('#player2').remove();
+            player2Button.appendTo('#enemy2');
+            var player4Button = $('#player4').remove();
+            player4Button.appendTo('#enemy3');
         }));
 
-    if ($("#player4>button").on("click", function() {
-            $(this).toggleClass("player-button");
-            var player1Button = $('#player1>button').remove();
-            player1Button.appendTo('#opponent1');
-            var player2Button = $('#player2>button').remove();
-            player2Button.appendTo('#opponent2');
-            var player3Button = $('#player3>button').remove();
-            player3Button.appendTo('#opponent3');
+    if ($("#player4").on("click", function() {
+            var player1Button = $('#player1').remove();
+            player1Button.appendTo('#enemy1');
+            var player2Button = $('#player2').remove();
+            player2Button.appendTo('#enemy2');
+            var player3Button = $('#player3').remove();
+            player3Button.appendTo('#enemy3');
         }));
 
     // Choose an opponent
-    var opponentChoice = ["#opponent1", "#opponent2", "#opponent3"];
+    var opponents = ["#enemy1", "#enemy2", "#enemy3"];
 
-    if ($("#opponent1>button").on("click", function() {
-            $(this).toggleClass("opponent-button");
-            var opponent1Button = $('#opponent1>button').remove();
-            opponent1Button.appendTo('.currentOpponent');
+    if ($("#enemy1").on("click", function() {
+            $(this).appendTo("#opponentChoice");
 
         }));
 
-    if ($("#opponent2>button").on("click", function() {
-            $(this).toggleClass("opponent-button");
-            var opponent2Button = $('#opponent2>button').remove();
-            opponent2Button.appendTo('.currentOpponent');
+    if ($("#enemy2").on("click", function() {
+            $(this).appendTo("#opponentChoice");
 
         }));
 
-    if ($("#opponent3>button").on("click", function() {
-            $(this).toggleClass("opponent-button");
-            var opponent3Button = $('#opponent3>button').remove();
-            opponent3Button.appendTo('.currentOpponent');
+    if ($("#enemy3").on("click", function() {
+            $(this).appendTo("#opponentChoice");
 
         }));
+
 
     // Attack on click events
 
@@ -84,12 +76,6 @@ $(document).ready(function() {
     // else game over hp === 0
     // if win match3, win game
     // else game over, hp === 0
-
-
-
-
-
-
 
 
 });
