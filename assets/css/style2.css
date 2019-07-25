@@ -1,7 +1,17 @@
+body {
+    background-image: url(../images/tokyo-subway.jpg);
+    color: white;
+    background-position: center;
+    background-position: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Rock Salt', Impact, 'Arial Narrow Bold', sans-serif;
+}
+
 .section-title {
-    font-size: 200%;
+    font-size: 150%;
 }
 
 .main-section-title {
-    font-size: 300%;
+    font-size: 200%;
+    text-align: center;
 }
