@@ -32,40 +32,96 @@ $(document).ready(function() {
 
     var currSelectedCharacter;
     var combatants = [];
+    var currDefender;
+    var turnCounter = 1;
+    var killCount = 0;
 
     // FUNCTIONS ================================================================================================
     // This function will render a character card to the page.
     // The character rendered and the area they are rendered to.
-    var renderOne = function(character, renderArea) {
+    var renderOne = function(character, renderArea, charStatus) {
         var charDiv = $("<div class='character' data-name='" + character.name + "'>");
         var charName = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
         var charHealth = $("<div class='character-health'>").text(character.health);
-        charDiv.append(charName).append(charImage).append(charHealth);
+        charDiv.append(charName).append(charImage).append(charHealth)
         $(renderArea).append(charDiv);
 
-    }
+
+
+        if (charStatus === "enemy") {
+            $(charDiv).addClass("enemy");
+        } else if (charStatus === "defender") {
+            currDefender = character;
+            $(charDiv).addClass("target-enemy");
+        }
+    };
 
     var renderCharacters = function(charObj, areaRender) {
         if (areaRender === "#characters-section") {
             $(areaRender).empty();
+
             for (var key in charObj) {
                 if (charObj.hasOwnProperty(key)) {
-                    renderOne(charObj[key], areaRender);
+                    renderOne(charObj[key], areaRender, "");
                 }
             }
         }
 
+
         if (areaRender === "#selected-character") {
-            renderOne(charObj, areaRender);
+            renderOne(charObj, areaRender, "");
         }
 
         if (areaRender === "#available-to-attack-section") {
 
             for (var i = 0; i < charObj.length; i++) {
-                renderOne(charObj[i], areaRender);
+                renderOne(charObj[i], areaRender, "enemy");
+            }
+            $(document).on("click", ".enemy", function() {
+                var name = ($(this).attr("data-name"));
+
+                // If no defender, clicked enemy becomes defender
+                if ($("#defender").children().length === 0) {
+                    renderCharacters(name, "#defender");
+                    $(this).hide();
+                    renderMessage("clearMessage");
+                }
+            });
+        }
+        // If defender === true then render the selected enemy here
+        if (areaRender === "#defender") {
+            $(areaRender).empty();
+            for (var i = 0; i < combatants.length; i++) {
+                if (combatants[i].name === charObj) {
+                    renderOne(combatants[i], areaRender, "defender");
+                }
             }
         }
+        if (areaRender === "playerDamage") {
+            $("#defender").empty();
+            renderOne(charObj, "#defender", "defender");
+        }
+        if (areaRender === "enemyDamage") {
+            $("#selected-character").empty();
+            renderOne(charObj, "#selected-character", "");
+        }
+        if (areaRender === "enemyDefeated") {
+            $("#defender").empty();
+
+        }
+    };
+
+    //messages
+    var renderMessage = function(message) {
+        var gamemessageSet = $("#game-message");
+        var newMessage = $("<div>").text(message);
+        gamemessageSet.append(newMessage);
+
+        if (message === "clearMessage") {
+            gamemessageSet.text("");
+        }
+
     }
 
     // Render all characters to the page when the game starts!
@@ -84,14 +140,38 @@ $(document).ready(function() {
                     combatants.push(characters[key]);
                 }
             }
-            console.log(combatants);
-            // HIde character select div
+
+            // Hide character select div
             $("#characters-section").hide();
 
             // Render selected character and combatants
             renderCharacters(currSelectedCharacter, "#selected-character");
             renderCharacters(combatants, "#available-to-attack-section");
-
         }
-    })
+    });
+
+    // attack on click 
+    $("#attack-button").on("click", function() {
+        if ($("#defender").children().length !== 0) {
+            (currDefender.health -= (currSelectedCharacter.attack * turnCounter));
+            if (currDefender.health > 0) {
+                renderCharacters(currDefender, "playerDamage");
+                //reduce health by opponent's attack pt value
+                currSelectedCharacter.health -= currDefender.enemyAttackBack;
+                //render player's updated character card
+                renderCharacters(currSelectedCharacter, "enemyDamage");
+            }
+        } else {
+            renderCharacters(currDefender, "enemyDefeated");
+            killCount++;
+
+            if (killCount >= 3) {
+
+            }
+        }
+        turnCounter++;
+    });
+
+
+
 });
