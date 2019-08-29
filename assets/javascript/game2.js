@@ -27,7 +27,7 @@ $(document).ready(function() {
             attack: 7,
             imageUrl: "assets/images/robo-panther.jpg",
             enemyAttackBack: 25
-        },
+        }
     };
 
     var currSelectedCharacter;
@@ -40,27 +40,29 @@ $(document).ready(function() {
     // This function will render a character card to the page.
     // The character rendered and the area they are rendered to.
     var renderOne = function(character, renderArea, charStatus) {
-        var charDiv = $("<div class='character' data-name='" + character.name + "'>");
+        var charDiv = $("<div class='character' data-name='" + (character.name) + "'>");
         var charName = $("<div class='character-name'>").text(character.name);
         var charImage = $("<img alt='image' class='character-image'>").attr("src", character.imageUrl);
         var charHealth = $("<div class='character-health'>").text(character.health);
         charDiv.append(charName).append(charImage).append(charHealth)
         $(renderArea).append(charDiv);
 
-
-
         if (charStatus === "enemy") {
+            combatants = character;
             $(charDiv).addClass("enemy");
+
+
         } else if (charStatus === "defender") {
-            currDefender = character;
+            currDefender = characters[name];
             $(charDiv).addClass("target-enemy");
+
+
         }
     };
 
     var renderCharacters = function(charObj, areaRender) {
         if (areaRender === "#characters-section") {
             $(areaRender).empty();
-
             for (var key in charObj) {
                 if (charObj.hasOwnProperty(key)) {
                     renderOne(charObj[key], areaRender, "");
@@ -68,49 +70,87 @@ $(document).ready(function() {
             }
         }
 
-
+        // if true render selected player to this area "selected-character"
         if (areaRender === "#selected-character") {
-            renderOne(charObj, areaRender, "");
+            renderOne(charObj, areaRender, "selected-character");
         }
 
+        // if true render selected player to this availble to attack
         if (areaRender === "#available-to-attack-section") {
 
-            for (var i = 0; i < charObj.length; i++) {
+            // loop through characters and call renderOne function
+            for (var i = 0; i < 3; i++) {
                 renderOne(charObj[i], areaRender, "enemy");
-            }
+            };
+
             $(document).on("click", ".enemy", function() {
                 var name = ($(this).attr("data-name"));
-
-                // If no defender, clicked enemy becomes defender
-                if ($("#defender").children().length === 0) {
+                console.log(name)
+                    // If no defender, clicked enemy becomes defender
+                if ($("#defender").children(this).length === 0) {
                     renderCharacters(name, "#defender");
-                    $(this).hide();
-                    renderMessage("clearMessage");
+                    // hide enemies to attack area
+                    $(areaRender).hide(this);
+
+
                 }
             });
         }
+
+
         // If defender === true then render the selected enemy here
         if (areaRender === "#defender") {
             $(areaRender).empty();
-            for (var i = 0; i < combatants.length; i++) {
+            for (var i = 0; i < 2; i++) {
                 if (combatants[i].name === charObj) {
                     renderOne(combatants[i], areaRender, "defender");
+                    var name = ($(this).attr("data-name"));
                 }
             }
         }
+
+
         if (areaRender === "playerDamage") {
             $("#defender").empty();
             renderOne(charObj, "#defender", "defender");
         }
         if (areaRender === "enemyDamage") {
             $("#selected-character").empty();
-            renderOne(charObj, "#selected-character", "");
+            renderOne(charObj, "#selected-character", "selected-character");
         }
         if (areaRender === "enemyDefeated") {
             $("#defender").empty();
 
         }
     };
+
+    // Render all characters to the page when the game starts!
+    renderCharacters(characters, "#characters-section");
+
+    $(document).on("click", ".character", function() {
+
+        // Saving clicked character's name.
+        var name = $(this).attr("data-name");
+        console.log(name);
+
+        // If player has not yet been chosen...
+        if (!currSelectedCharacter) {
+            var currSelectedCharacter = characters[name];
+            //for (var key in characters) {
+            //if (key !== name) {
+            //combatants.push(characters[key]);
+            //}
+            //}
+        }
+        // Hide character select div
+        $("#characters-section").hide();
+
+        // Render selected character and combatants
+
+        renderCharacters(currSelectedCharacter, "#selected-character");
+        renderCharacters(combatants, "#available-to-attack-section");
+        renderCharacters(currDefender, "#defender");
+    });
 
     //messages
     var renderMessage = function(message) {
@@ -124,31 +164,10 @@ $(document).ready(function() {
 
     }
 
-    // Render all characters to the page when the game starts!
-    renderCharacters(characters, "#characters-section");
 
-    $(document).on("click", ".character", function() {
-        // Saving clicked character's name.
-        var name = $(this).attr("data-name");
-        console.log(name);
 
-        // If player has not yet been chosen...
-        if (!currSelectedCharacter) {
-            var currSelectedCharacter = characters[name];
-            for (var key in characters) {
-                if (key !== name) {
-                    combatants.push(characters[key]);
-                }
-            }
 
-            // Hide character select div
-            $("#characters-section").hide();
 
-            // Render selected character and combatants
-            renderCharacters(currSelectedCharacter, "#selected-character");
-            renderCharacters(combatants, "#available-to-attack-section");
-        }
-    });
 
     // attack on click 
     $("#attack-button").on("click", function() {

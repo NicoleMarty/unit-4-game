@@ -11,37 +11,46 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- JS -->
-    <script src="assets/javascript/game2.js"></script>
+    <script type="text/javascript" src="assets/javascript/game2.js"></script>
 
 </head>
 
 
 <body>
 
-    <div class="main-section-title">Tokyo Underground RPG!</div>
+    <div class="main-section-title">Tokyo Underground</div>
     <div id="main-game-section">
+
+        <!-- Section where initially choose a player -->
         <div id="characters-section">
             <div class="section-title">Choose Your Player</div>
-
         </div>
+
+        <!-- Section for once a player is selected for remainder of game -->
         <div id="selected-character-section">
             <div class="section-title">Your Player</div>
-            <div id="selected-character">
-
-            </div>
+            <!-- Player selected renders here -->
+            <div id="selected-character"></div>
         </div>
+
+        <!-- Section where all other player choices will render as emeies-->
         <div id="available-to-attack-section">
             <div class="section-title">Enemies to Attack</div>
+            <div id="unselected-characters"></div>
+            <!--try: <div id="unselected-characters"></div> and .addClass("unselected-characters) in js-->
         </div>
 
-        <div class="section-title">Fighting Ring</div>
+        <!-- Section where chosen player will fight enemies one by one-->
+        <div class="section-title">Fight Me!</div>
         <div id="fight-section">
-            <button id="attack-button">Attack!</button>
+            <button id="attack-button">Attack</button>
         </div>
 
+        <!-- Section where enemy will render on click for(loop)var i=0;i<characters-section.length; i++ -->
         <div id="action">
             <div class="characters-section">
                 <div class="section-title">Defender</div>
+                <!-- Where chosen defender will render-->
                 <div id="defender"></div>
             </div>
         </div>

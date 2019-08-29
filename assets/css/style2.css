@@ -19,7 +19,7 @@ img {
 
 .main-section-title {
     font-size: 200%;
-    text-align: center;
+    text-align: right;
 }
 
 .character {
@@ -36,7 +36,7 @@ img {
     padding-right: 16px;
     padding-left: 16px;
     margin-top: 3px;
-    margin-bottom: 3px;
+    margin-bottom: 0px;
 }
 
 .character-name {
